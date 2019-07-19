@@ -1,0 +1,55 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HOTELARIA - A forma mais simples de encontrar hotéis
+    " />
+    <title>HOTELARIA</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/all.css' %}" />
+    <link rel="stylesheet" href="https://icono-49d6.kxcdn.com/icono.min.css">
+
+    <style type="text/css">
+        button{
+            border-radius: 100px;
+            margin-top: 50px;
+        }
+        input{
+            width: 300px;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <div class="header">
+        <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+            <a class="pure-menu-heading" href="{% url 'core:home' %}">HOTELARIA</a>
+            <ul>
+                <li class="pure-menu-selected"><a href="{% url 'core:home' %}">Início</a></li>
+                <li><a href="{% url 'hoteis:index' %}">Hotéis</a></li>
+                <li><a href="{% url 'core:contato' %}">Contato</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'contas:painel' %}">Painel</a></li>
+                <li><a href="{% url 'contas:logout' %}">Sair</a></li>
+                {% else %}
+                <li><a href="{% url 'contas:login'%}">Entrar</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    
+    {% block content %}
+
+    {% endblock %}
+    <div class="footer">
+        HOTELARIA - A forma mais simples de encontrar hotéis
+    </div>
+    
+    <script src="http://yui.yahooapis.com/3.12.0/build/yui/yui-min.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends "contas/painel.html" %}
+
+{% block breadcrumb %}
+    {{ block.super }}
+    <li>/</li>
+    <li><a href="{% url 'contas:editar' %}">Editar Conta</a></li>
+{% endblock %}
+
+{% block painel_content %}
+<form class="pure-form pure-form-stacked" method="POST">
+    {% csrf_token %}
+    {% if success %}
+    <p>Os dados foram alterados com sucesso</p>
+    {% endif %}
+    <fieldset>
+        {{ form.non_field_errors }}
+        {% for campo in form %}
+        <div class="pure-control-group">
+            {{ campo.label_tag }}
+            {{ campo }}
+            {{ campo.errors }}
+        </div>
+        {% endfor %}
+        <div class="pure-controls">
+            <button type="submit" class="pure-button pure-button-primary">Salvar Modificações</button>
+        </div>
+    </fieldset>
+</form>
+{% endblock %}

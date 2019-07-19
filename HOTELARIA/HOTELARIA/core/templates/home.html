@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="splash">
+    <div class="pure-g-r">
+        <div class="pure-u-1">
+            <div class="l-box splash-text">
+                <h1 class="splash-head">
+                 HOTELARIA - A forma mais simples de encontrar hotéis
+             </h1>
+             <h2 class="splash-subhead">
+                O HOTELARIA visa simplificar a busca por hótéis e a facilitação do négocio.
+            </h2>
+            <p>
+                <a href="{% url 'contas:login' %}" class="pure-button primary-button">Cadastre-se</a>
+            </p>
+        </div>
+    </div>
+</div>
+</div>
+<div class="content">
+    <div class="pure-g-r content-ribbon">
+        <div class="pure-u-2-3">
+            <div class="l-box">
+                <h4 class="content-subhead">Facilite sua busca por hotéis</h4>
+                <h3>Publique sobre seu hotél </h3>
+                <p>
+                    O HOTELARIA tem um sistema de busca de hotéis e te deixa bem informado.
+                </p>
+            </div>
+        </div>
+        <div class="pure-u-1-3">
+            <div class="l-box">
+                <img src="{% static 'img/hotel.jpg'%}"
+                alt="HOTELARIA." title="HOTELARIA">
+            </div>
+        </div>
+    </div>
+    <div class="pure-g-r content-ribbon">
+        <div class="pure-u-1-3">
+            <div class="l-box">
+                <img src="{% static 'img/negocio.jpg'%}" alt="Fórum de Dúvidas">
+               
+            </div>
+        </div>
+        <div class="pure-u-2-3">
+            <div class="l-box">
+                <h4 class="content-subhead">Você e o cliente</h4>
+                <h3>Interaja com seus clientes</h3>
+                <p>
+                  No HOTELARIA é você o cliente, te levamos pra mais perto deles. 
+                  Contamos com uma área de dúvidas e contato com os hóteis.
+                </p>
+            </div> 
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

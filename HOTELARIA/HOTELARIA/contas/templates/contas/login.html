@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="content">
+    <div class="pure-g-r content-ribbon">
+        <div class="pure-u-1">
+            <h2>Informe seus dados de cadastro</h2>
+            <form class="pure-form pure-form-stacked" method="POST">
+                {%  csrf_token %}
+                <fieldset>
+                   {{ form.non_field_errors }}
+
+                   {% for campo in form %}
+                   <div class="campos">
+                    <div class="pure-control-group">
+                        {{ campo.label_tag}}
+                        {{ campo }}
+                        {{ campo.errors}}
+                    </div>
+                </div>
+
+                {% endfor %}
+
+                <div class="pure-controls">
+                    <button type="submit" class="pure-button pure-button-primary primary-button">Entrar</button>
+                </div>
+            </fieldset>
+            <p>
+                <p>
+                    Não é cadastrado? <a href="{% url 'contas:registro' %}" title="">Cadastre-se</a> <br />
+                    Esqueceu a senha? <a href="{% url 'contas:resetarSenha'%}" title="">Nova senha</a> <br />
+                    
+                </p>
+            
+            </p>
+        </form>
+    </div>
+</div>
+{% endblock %}
